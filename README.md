@@ -5,7 +5,7 @@ Hello Hackers! It's friendly every-year repository for hacktoberfest. Everyone c
 Hacktoberfest, in its 8th year, is a month-long celebration of open source software run by DigitalOcean. During the month of October, we invite you to join open-source software enthusiasts, beginners, and the developer community by contributing to open-source projects. You can do this in a variety of ways:
 
 ## How do I get started?
-1. Visit the official HactoberFest website here
+1. Visit the official HactoberFest website [here](https://hacktoberfest.digitalocean.com/)
 2. Click on the 'Start Hacking' Button.
 3. Login using your Github/ Gitlab account. It is crucial that you have a Github or Gitlab account to take part in Hactoberfest.
 4. And you're all set!
