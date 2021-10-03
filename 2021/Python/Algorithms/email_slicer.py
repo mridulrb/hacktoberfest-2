@@ -3,4 +3,4 @@ username = email[:email.index('@')]
 domain = email[email.index('@') + 1:]
 
 
-# created by harsh sharma
+#created by harsh sharma
