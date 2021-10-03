@@ -139,7 +139,7 @@ class SinglyLinkedList {
     }
 
     /**
-     * *set(): sets a node at a particular index and replaces the existing node.
+     * *set(val,index): sets a node at a particular index and replaces the existing node.
      * -> accepts a value and index
      * -> we can get the particular node by using the get method.
      * -> And replace the value of the found node with the provided value.
@@ -153,6 +153,31 @@ class SinglyLinkedList {
         return false
     }
 
+    /**
+     * *insert(val, index): inserts a new node at a particular index of the list
+     * -> accepts a value and index.
+     * -> if index is less than 0 or greater then the list's length return false
+     * -> if index is equal to the length of the list, add the value at the end of the list by using the push and for index to 0, add the value with unshift method.
+     * -> Else: create a new node and get the previous node of given index with the get method, and also create a temporary variable to store the reference of the next pointer of the previous node.
+     * -> set the next pointer of the previous node to the newly created node and next pointer of the newly created node to the temporary variable.
+     * -> increment the length
+     */
+    insert(val, index) {
+        if(index < 0 || index > this.length) return false;
+        if(index === this.length) return this.push(val);
+        if(index === 0) return this.unshift(val);
+
+        let newNode = new Node(val);
+        let prevNode = this.get(index - 1);
+        let tempNode = prevNode.next;
+
+        prevNode.next = newNode;
+        newNode.next = tempNode;
+
+        this.length++;
+        return true;
+
+    }
 }
 
 let _linkedLinked = new SinglyLinkedList();
@@ -182,4 +207,5 @@ _linkedLinked.push(11)
 
 // * Set
 _linkedLinked.set(9999, 0)
-console.log('SinglyLinkedList: ', _linkedLinked); 
+_linkedLinked.insert(10001, 2) 
+console.log('SinglyLinkedList: ', JSON.stringify(_linkedLinked)); //* [9999] --> [1] --> [8] --> [1001] --> [11] --> null
