@@ -46,4 +46,4 @@ photo = PhotoImage(file = "Num2Words/number.png")
 root.iconphoto(False, photo)
 
 root.mainloop()
-#This program is created by Harsh Sharma 
+#This programe is created by Harsh Sharma
