@@ -23,14 +23,14 @@ class Node {
 
 //* Initiate the LinkedList
 class SinglyLinkedList {
-    contructor() {
+    constructor() {
         this.head = null;
-        this.tail - null;
+        this.tail = null;
         this.length = 0;
     }
 
     /**
-     * push(val) : adding the node at the end of the list
+     * *push(val) : adding the node at the end of the list
      * @param {*} val 
      * -> function should accept a value and create a new node using the value passed.
      * -> Handle if no head is present. If head is not set or head property is null, set the head and tail to the newly created node.
@@ -45,9 +45,11 @@ class SinglyLinkedList {
             this.tail.next = newNode;
             this.tail = newNode;
         }
+        
         this.length++;
         return this;
     }
+
 }
 
 let _linkedLinked = new SinglyLinkedList();
@@ -57,7 +59,4 @@ _linkedLinked.push(1) // [1] --> null
 _linkedLinked.push(8) 
 _linkedLinked.push(11) 
 console.log('SinglyLinkedList: ', _linkedLinked); //* [1] --> [8] --> [11] --> null
-
-
-
 
