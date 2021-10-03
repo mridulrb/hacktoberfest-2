@@ -9,5 +9,4 @@ int main() {
    fact*=i;
    }
     cout<<fact;
-   return 0;
-}
+   return 0;}
