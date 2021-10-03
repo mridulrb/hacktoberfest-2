@@ -179,5 +179,7 @@ _linkedLinked.push(11)
 // console.log(_linkedLinked.get(2));
 // console.log(_linkedLinked.get(0));
 // console.log(_linkedLinked.get(10));
+
+// * Set
 _linkedLinked.set(9999, 0)
 console.log('SinglyLinkedList: ', _linkedLinked); 
