@@ -99,6 +99,28 @@ class SinglyLinkedList {
         return this;
     }
 
+    /**
+     *  *unshift(val) : adds at the beginning of the list
+     *  @param {*} val
+     * -> Similar to push() method, accepts a value and creates a new Node and adds at the beginning of the list.
+     * -> If head is null, set the head and tail to the newly created node.
+     * -> Else: set next property of the newly create node to current head and set current head to new node.
+     * -> increment the length by 1 and return the list.
+     */
+    unshift(val) {
+        let newNode = new Node(val);
+        if(!this.head) {
+            this.head = newNode;
+            this.tail = newNode;
+        } else {
+            newNode.next = this.head;
+            this.head = newNode;
+        }
+        this.length++;
+        return this;
+
+    }
+
 }
 
 let _linkedLinked = new SinglyLinkedList();
@@ -115,7 +137,10 @@ _linkedLinked.push(11)
 // _linkedLinked.pop()
 
 // * SHIFT
-_linkedLinked.shift() //* [8] --> [11] --> null
+// _linkedLinked.shift() //* [8] --> [11] --> null
 // _linkedLinked.shift() 
 // _linkedLinked.shift()
+
+// * UNSHIFT
+_linkedLinked.unshift(99) //* [99] --> [1] --> [8] --> [11] --> null 
 console.log('SinglyLinkedList: ', _linkedLinked); 
