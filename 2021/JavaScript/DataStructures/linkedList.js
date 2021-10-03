@@ -200,6 +200,35 @@ class SinglyLinkedList {
 
         return this;
     }
+
+    /**
+     * *reverse(): reverses the entire linkedlist
+     * * [1] --> [8] --> [11] --> null
+     * ! head             tail
+     * @reverse : [11] --> [8] --> [1] --> null
+     * !          head             tail
+     * -> Swap the current head and tail.
+     * -> Traverse through the entire list and on every iteration set the next pointer to the current node's next pointer (which ever node is the current node in the iteration at the time)
+     * -> And set the current node's next pointer the the previous node and update the previous node and current node for the next iteration.
+     */
+    reverse() {
+        let currentNode = this.head
+        let prevNode = null
+        let next
+    
+        this.head = this.tail
+        this.tail = currentNode
+    
+        while (currentNode) {
+          next = currentNode.next
+          currentNode.next = prevNode
+    
+          prevNode = currentNode
+          currentNode = next
+        }
+    
+        return this
+      }
 }
 
 let _linkedLinked = new SinglyLinkedList();
@@ -235,5 +264,9 @@ _linkedLinked.insert(10001, 2)
 // console.log('SinglyLinkedList: ', JSON.stringify(_linkedLinked)); //* [1] --> [8] --> [1001] --> [11] --> null
 
 // *REMOVE
-_linkedLinked.remove(3) //* [1] --> [8] --> [1001] --> null
+// _linkedLinked.remove(3) //* [1] --> [8] --> [1001] --> null
+
+// *REVERSE A LINKED LIST
 console.log('SinglyLinkedList: ', JSON.stringify(_linkedLinked));
+_linkedLinked.reverse() //* [11] --> [10001] --> [8] --> [1] --> null
+console.log('reversed SinglyLinkedList: ', JSON.stringify(_linkedLinked));
