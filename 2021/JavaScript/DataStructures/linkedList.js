@@ -49,6 +49,35 @@ class SinglyLinkedList {
         this.length++;
         return this;
     }
+     /**
+     * *pop() : removing a node from the end of the list
+     * -> If the length of the list is 0 or there are no nodes, return false
+     * -> Else: loop through the list untill you reach the tail starting from the head.
+     * -> Set the next property of the 2nd last node to null and set the tail to the 2nd last node. And decrement the length of the list by 1
+     * -> return the entire list or return the removed node.
+     * -> if the function is called on list with 1 item, then set the head and tail to null.
+     */
+    pop() {
+        if(this.head === null) return false;
+
+        let currentNode = this.head;
+        let newTail = currentNode;
+
+        while(currentNode.next) {
+            newTail = currentNode;
+            currentNode = currentNode.next;
+        }
+        this.tail = newTail;
+        this.tail.next = null;
+        this.length--;
+        //check if the list is empty
+        if(this.length === 0) {
+            this.head = null;
+            this.tail = null;
+        }
+        return this;
+
+    }
 
 }
 
@@ -58,5 +87,10 @@ let _linkedLinked = new SinglyLinkedList();
 _linkedLinked.push(1) // [1] --> null
 _linkedLinked.push(8) 
 _linkedLinked.push(11) 
-console.log('SinglyLinkedList: ', _linkedLinked); //* [1] --> [8] --> [11] --> null
+// console.log('SinglyLinkedList: ', _linkedLinked); //* [1] --> [8] --> [11] --> null
 
+// *POP
+_linkedLinked.pop() //* [1] --> [8] --> null
+// _linkedLinked.pop()
+// _linkedLinked.pop()
+console.log('SinglyLinkedList: ', _linkedLinked); 
