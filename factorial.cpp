@@ -1,9 +1,12 @@
 #include <iostream>
 using namespace std;
 int main() {
-   int n = 5, fact = 1, i;
+   int n, fact = 1, i;
+   cin>>n;
    for(i=1; i<=n; i++)
+   {
    fact = fact * i;
-   cout<<"Factorial of "<<n<<" is "<<fact;
+   }
+   cout<<fact;
    return 0;
 }
