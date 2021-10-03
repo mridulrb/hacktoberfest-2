@@ -121,6 +121,23 @@ class SinglyLinkedList {
 
     }
 
+    /**
+     * *get(): gets a particular node from the list
+     * -> accepts an index and gets the node at that particular list.
+     * -> traverse the entire list till we get the node and return the node
+     */
+    get(index) {
+        if(index < 0 || index >= this.length) return null;
+
+        //traversing the list
+        let currentNode = this.head;
+        for(let i = 0; i <= index; i++) {
+            if(i === index) return currentNode;
+            //update the current Node
+            currentNode = currentNode.next;
+        }
+    }
+
 }
 
 let _linkedLinked = new SinglyLinkedList();
@@ -142,5 +159,9 @@ _linkedLinked.push(11)
 // _linkedLinked.shift()
 
 // * UNSHIFT
-_linkedLinked.unshift(99) //* [99] --> [1] --> [8] --> [11] --> null 
-console.log('SinglyLinkedList: ', _linkedLinked); 
+// _linkedLinked.unshift(99) //* [99] --> [1] --> [8] --> [11] --> null 
+
+console.log(_linkedLinked.get(2));
+console.log(_linkedLinked.get(0));
+console.log(_linkedLinked.get(10));
+// console.log('SinglyLinkedList: ', _linkedLinked); 
