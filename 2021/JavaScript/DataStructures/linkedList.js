@@ -78,6 +78,26 @@ class SinglyLinkedList {
         return this;
 
     }
+     /**
+     * *shift() : removes a node from the start of the list
+     * -> Similar to pop, it removes the node from the beginning of the list.
+     * -> Check if head is equal to null then return false.
+     * -> Else: store the current head in a variable and point the current head to the next property of the current head. And decrement the length by 1
+     * -> If the current length is equal to 0 after removing the node, then set the head and tail to null and return the list.
+     */
+    shift() {
+        if(!this.head) return false
+
+        let currentHead = this.head;
+        this.head = currentHead.next;
+        this.length--;
+
+        if(this.length === 0) {
+            this.head = null;
+            this.tail = null;
+        }
+        return this;
+    }
 
 }
 
@@ -90,7 +110,12 @@ _linkedLinked.push(11)
 // console.log('SinglyLinkedList: ', _linkedLinked); //* [1] --> [8] --> [11] --> null
 
 // *POP
-_linkedLinked.pop() //* [1] --> [8] --> null
+// _linkedLinked.pop() //* [1] --> [8] --> null
 // _linkedLinked.pop()
 // _linkedLinked.pop()
+
+// * SHIFT
+_linkedLinked.shift() //* [8] --> [11] --> null
+// _linkedLinked.shift() 
+// _linkedLinked.shift()
 console.log('SinglyLinkedList: ', _linkedLinked); 
