@@ -178,6 +178,28 @@ class SinglyLinkedList {
         return true;
 
     }
+
+    /**
+     * *remove(index): removes or deletes a node from the list at given index
+     * -> accept an index
+     * -> if index is less than 0 or greater then the list's length return false
+     * -> if index is equal to the length of the list, remove the value at the end of the list by using the pop method and if index is 0, removes the value with shift method.
+     * -> Else: get the previous node at the given index and the node to be romoved will be at the next pointer of the previopus node.
+     * -> set the next pointer of the previous node to the next pointer of the to be removed node and decrement the length by 1
+     */
+    remove(index) {
+        if(index < 0 || index > this.length) return false;
+        if(index === this.length - 1) return this.pop();
+        if(index === 0) return this.shift();
+
+        let prevNode = this.get(index - 1);
+        let toRemoveNode = prevNode.next;
+
+        prevNode.next = toRemoveNode.next;
+        this.length--;
+
+        return this;
+    }
 }
 
 let _linkedLinked = new SinglyLinkedList();
@@ -205,7 +227,13 @@ _linkedLinked.push(11)
 // console.log(_linkedLinked.get(0));
 // console.log(_linkedLinked.get(10));
 
-// * Set
-_linkedLinked.set(9999, 0)
+// * SET
+// _linkedLinked.set(9999, 0)
+
+// *INSERT
 _linkedLinked.insert(10001, 2) 
-console.log('SinglyLinkedList: ', JSON.stringify(_linkedLinked)); //* [9999] --> [1] --> [8] --> [1001] --> [11] --> null
+// console.log('SinglyLinkedList: ', JSON.stringify(_linkedLinked)); //* [1] --> [8] --> [1001] --> [11] --> null
+
+// *REMOVE
+_linkedLinked.remove(3) //* [1] --> [8] --> [1001] --> null
+console.log('SinglyLinkedList: ', JSON.stringify(_linkedLinked));
