@@ -138,6 +138,21 @@ class SinglyLinkedList {
         }
     }
 
+    /**
+     * *set(): sets a node at a particular index and replaces the existing node.
+     * -> accepts a value and index
+     * -> we can get the particular node by using the get method.
+     * -> And replace the value of the found node with the provided value.
+     */
+    set(val, index) {
+        let foundValue = this.get(index);
+        if(foundValue) {
+            foundValue.value = val;
+            return true;
+        }
+        return false
+    }
+
 }
 
 let _linkedLinked = new SinglyLinkedList();
@@ -161,7 +176,8 @@ _linkedLinked.push(11)
 // * UNSHIFT
 // _linkedLinked.unshift(99) //* [99] --> [1] --> [8] --> [11] --> null 
 
-console.log(_linkedLinked.get(2));
-console.log(_linkedLinked.get(0));
-console.log(_linkedLinked.get(10));
-// console.log('SinglyLinkedList: ', _linkedLinked); 
+// console.log(_linkedLinked.get(2));
+// console.log(_linkedLinked.get(0));
+// console.log(_linkedLinked.get(10));
+_linkedLinked.set(9999, 0)
+console.log('SinglyLinkedList: ', _linkedLinked); 
