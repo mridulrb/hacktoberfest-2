@@ -23,7 +23,7 @@ int main()
     int choice;
     while (1)
     {
-        system("cls");
+        printf("\n\n");
         printf("\t\tMain Menu\n");
         printf("1.Push\n2.Pop\n3.Peek\n4.Size\n5.Display\n6.Delete\n7.Exit");
         printf("\nEnter your choice: ");
