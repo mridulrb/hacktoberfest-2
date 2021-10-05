@@ -1,24 +1,17 @@
-
-
-
 class Node:
-
-	
 	def __init__(self, data):
 		self.data = data # Assign data
 		self.next = None # Initialize next as null
 
-
 # Linked List class contains a Node object
 class LinkedList:
-
 	# Function to initialize head
 	def __init__(self):
 		self.head = None
 
 	# This function prints contents of linked list
 	# starting from head
-	def printList(self):
+	def print_list(self):
 		temp = self.head
 		while (temp):
 			print (temp.data)
@@ -27,7 +20,6 @@ class LinkedList:
 
 # Code execution starts here
 if __name__=='__main__':
-
 	# Start with the empty list
 	llist = LinkedList()
 
@@ -35,8 +27,7 @@ if __name__=='__main__':
 	second = Node(2)
 	third = Node(3)
 
-	llist.head.next = second; # Link first node with second
-	second.next = third; # Link second node with the third node
+	llist.head.next = second # Link first node with second
+	second.next = third # Link second node with the third node
 
-	llist.printList()
-#code contributed by devesh tripathi
+	llist.print_list()
