@@ -16,7 +16,7 @@ class Node:
 		self.next = new_next
 
 
-class LinkedList:
+class UnorderedLinkedList:
 	def __init__(self):
 		self.head = None
 
@@ -28,7 +28,7 @@ class LinkedList:
 
 
 if __name__=='__main__':
-	linked_list = LinkedList()
+	linked_list = UnorderedLinkedList()
 
 	linked_list.head = Node(1)
 	second = Node(2)
