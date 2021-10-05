@@ -3,6 +3,7 @@ class Node:
 		self.data = data
 		self.next = None
 
+
 class LinkedList:
 	def __init__(self):
 		self.head = None
@@ -21,7 +22,7 @@ if __name__=='__main__':
 	second = Node(2)
 	third = Node(3)
 
-	linked_list.head.next = second # Link first node with second
-	second.next = third # Link second node with the third node
+	linked_list.head.next = second
+	second.next = third
 
 	linked_list.print_list()
