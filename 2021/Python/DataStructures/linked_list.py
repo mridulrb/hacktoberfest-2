@@ -15,13 +15,13 @@ class LinkedList:
 
 
 if __name__=='__main__':
-	llist = LinkedList()
+	linked_list = LinkedList()
 
-	llist.head = Node(1)
+	linked_list.head = Node(1)
 	second = Node(2)
 	third = Node(3)
 
-	llist.head.next = second # Link first node with second
+	linked_list.head.next = second # Link first node with second
 	second.next = third # Link second node with the third node
 
-	llist.print_list()
+	linked_list.print_list()
