@@ -1,4 +1,4 @@
-print("Hello Word Hacktoberfast 2021 ")
+print("Hello Hacktoberfest 2021 :)")
 
 array = [9,8,7,6,5,4,3]
 soma = 0
