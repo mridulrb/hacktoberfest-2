@@ -1,4 +1,4 @@
-xyz = [i for in range(5)]
+xyz = [i for i in range(5)]
 
 # equals to:
 
