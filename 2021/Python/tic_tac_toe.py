@@ -1,270 +1,136 @@
-from tkinter import *
-import tkinter.messagebox as msg
+#I have tried my version of tic-tac-toe code, kindly check and give positive feedback
 
-root= Tk()
-root.title('TIC-TAC-TOE---Project Gurukul')
-#labels
-Label(root,text="player1 : X",font="times 15").grid(row=0,column=1)
-Label(root,text="player2 : O",font="times 15").grid(row=0,column=2)
-
-digits = [1,2,3,4,5,6,7,8,9]
-
-#for player1 sign = X and for player2 sign= Y
-mark = ''
-
-#counting the no. of click
-count = 0
-
-
-panels = ["panel"]*10
+import random
+def display_board(board):
+    print("\n")
+    print("      |      |")
+    print(''+  board[7]    + "      |" + board[8] + '      |' + board[9])
+    print("      |      |")
+    print("  -----------------")
+    print("      |      |")
+    print(''+ board[4]+ "      |" + board[5] + '      |' + board[6])
+    print("      |      |")
+    print("  ------------------")
+    print("      |      |")
+    print(''+ board[1]+ "      |" + board[2] + '      |' + board[3])
+    print("      |      |")
 
 
-def win(panels,sign):
-    return ((panels[1] == panels[2] == panels [3] == sign)
-            or (panels[1] == panels[4] == panels [7] == sign)
-            or (panels[1] == panels[5] == panels [9] == sign)
-            or (panels[2] == panels[5] == panels [8] == sign)
-            or (panels[3] == panels[6] == panels [9] == sign)
-            or (panels[3] == panels[5] == panels [7] == sign)
-            or (panels[4] == panels[5] == panels [6] == sign) 
-            or (panels[7] == panels[8] == panels [9] == sign))
+def player_input(a,b):
+    n=""
+    if n!="X" or n!="O":
+        while n!="X" and n!="O":
+            n=input(a +" choose the marker X or O ").upper()
+    if n=="X":
+        return "X","O"
+    else:
+        return "O","X"
 
-def checker(digit):
-    global count, mark, digits
 
-    #Check which button clicked 
+def placemarker(board,marker,position):
+    if board[position]=="":
+        board[position]=marker
+    else:
+        print()
+        print("oops!! Place Occupied You Lost Your Chance  ")
+
+
+
+def wincheck(b,m):
+    if (b[1]==m and b[2]==m and b[3]==m) or (b[4]==m and b[5]==m and b[6]==m) or (b[7]==m and b[8]==m and b[9]==m) or (b[4]==m and b[7]==m and b[1]==m)or (b[9]==m and b[6]==m and b[3]==m) or (b[5]==m and b[8]==m and b[2]==m) or (b[7]==m and b[5]==m and b[3]==m) or (b[9]==m and b[5]==m and b[1]==m):
+        return True
+    else:
+        return False
+
+
+
+def spacecheck(b,pos):
+    return b[pos]==""
+
+
+def fullboardcheck(b):
+    for i in range(1,10):
+        if  spacecheck(b,i):
+            return False
+    return True
+
+
+
+def playerchoice(b):
+    pos=0
+    print()
+    while pos not in [1,2,3,4,5,6,7,8,9] and spacecheck(b,pos):
+        pos=int(input("enter the position from 1-9 "))
+    return pos
+
+
+def choosefirst(a,b):
+    flip=random.randint(0,1)
+    if flip==0:
+        return a
+    else:
+        return b
+
     
-    if digit==1 and digit in digits:
-        digits.remove(digit)
-##player1 will play if the value of count is even and for odd player2 will play
-        if count%2==0:
-            mark ='X'
-            panels[digit]=mark
-        elif count%2!=0:
-            mark = 'O'
-            panels[digit]=mark
-
-        button1.config(text = mark)
-        count = count+1
-        sign = mark
-
-        if(win(panels,sign) and sign=='X'):
-            msg.showinfo("Result","Player1 wins")
-            root.destroy()
-        elif(win(panels,sign) and sign=='O'):
-            msg.showinfo("Result","Player2 wins")
-            root.destroy()
-
-    if digit==2 and digit in digits:
-        digits.remove(digit)
-
-        if count%2==0:
-            mark ='X'
-            panels[digit]=mark
-        elif count%2!=0:
-            mark = 'O'
-            panels[digit]=mark
-
-        button2.config(text = mark)
-        count = count+1
-        sign = mark
-
-        if(win(panels,sign) and sign=='X'):
-            msg.showinfo("Result","Player1 wins")
-            root.destroy()
-        elif(win(panels,sign) and sign=='O'):
-            msg.showinfo("Result","Player2 wins")
-            root.destroy()
+def replay():
+    c=input("want to play again? yes or no")
+    return c=="yes"
 
 
-    if digit==3 and digit in digits:
-        digits.remove(digit)
-
-        if count%2==0:
-            mark ='X'
-            panels[digit]=mark
-        elif count%2!=0:
-            mark = 'O'
-            panels[digit]=mark
-
-        button3.config(text = mark)
-        count = count+1
-        sign = mark
-
-        if(win(panels,sign) and sign=='X'):
-            msg.showinfo("Result","Player1 wins")
-            root.destroy()
-        elif(win(panels,sign) and sign=='O'):
-            msg.showinfo("Result","Player2 wins")
-            root.destroy()
-
-
-            
-    if digit==4 and digit in digits:
-        digits.remove(digit)
-
-        if count%2==0:
-            mark ='X'
-            panels[digit]=mark
-        elif count%2!=0:
-            mark = 'O'
-            panels[digit]=mark
-
-        button4.config(text = mark)
-        count = count+1
-        sign = mark
-
-        if(win(panels,sign) and sign=='X'):
-            msg.showinfo("Result","Player1 wins")
-            root.destroy()
-        elif(win(panels,sign) and sign=='O'):
-            msg.showinfo("Result","Player2 wins")
-            root.destroy()
-
-
-
-    if digit==5 and digit in digits:
-        digits.remove(digit)
-
-        if count%2==0:
-            mark ='X'
-            panels[digit]=mark
-        elif count%2!=0:
-            mark = 'O'
-            panels[digit]=mark
-
-        button5.config(text = mark)
-        count = count+1
-        sign = mark
-
-        if(win(panels,sign) and sign=='X'):
-            msg.showinfo("Result","Player1 wins")
-            root.destroy()
-        elif(win(panels,sign) and sign=='O'):
-            msg.showinfo("Result","Player2 wins")
-            root.destroy()
-
-
-    if digit==6 and digit in digits:
-        digits.remove(digit)
-
-        if count%2==0:
-            mark ='X'
-            panels[digit]=mark
-        elif count%2!=0:
-            mark = 'O'
-            panels[digit]=mark
-
-        button6.config(text = mark)
-        count = count+1
-        sign = mark
-
-        if(win(panels,sign) and sign=='X'):
-            msg.showinfo("Result","Player1 wins")
-            root.destroy()
-        elif(win(panels,sign) and sign=='O'):
-            msg.showinfo("Result","Player2 wins")
-            root.destroy()
-
-
-    if digit==7 and digit in digits:
-        digits.remove(digit)
-
-        if count%2==0:
-            mark ='X'
-            panels[digit]=mark
-        elif count%2!=0:
-            mark = 'O'
-            panels[digit]=mark
-
-        button7.config(text = mark)
-        count = count+1
-        sign = mark
-
-        if(win(panels,sign) and sign=='X'):
-            msg.showinfo("Result","Player1 wins")
-            root.destroy()
-        elif(win(panels,sign) and sign=='O'):
-            msg.showinfo("Result","Player2 wins")
-            root.destroy()
-
-
-    if digit==8 and digit in digits:
-        digits.remove(digit)
-
-        if count%2==0:
-            mark ='X'
-            panels[digit]=mark
-        elif count%2!=0:
-            mark = 'O'
-            panels[digit]=mark
-
-        button8.config(text = mark)
-        count = count+1
-        sign = mark
-
-        if(win(panels,sign) and sign=='X'):
-            msg.showinfo("Result","Player1 wins")
-            root.destroy()
-        elif(win(panels,sign) and sign=='O'):
-            msg.showinfo("Result","Player2 wins")
-            root.destroy()
-
-
-    if digit==9 and digit in digits:
-        digits.remove(digit)
-
-        if count%2==0:
-            mark ='X'
-            panels[digit]=mark
-        elif count%2!=0:
-            mark = 'O'
-            panels[digit]=mark
-
-        button9.config(text = mark)
-        count = count+1
-        sign = mark
-
-        if(win(panels,sign) and sign=='X'):
-            msg.showinfo("Result","Player1 wins")
-            root.destroy()
-        elif(win(panels,sign) and sign=='O'):
-            msg.showinfo("Result","Player2 wins")
-            root.destroy()
-
-
- ###if count is greater then 8 then the match has been tied   
-    if(count>8 and win(panels,'X')==False and win(panels,'O')==False):
-        msg.showinfo("Result","Match Tied")
-        root.destroy()
-        
-
-
-
-
-
-####define buttons
-button1=Button(root,width=15,font=('Times 16 bold'),height=7,command=lambda:checker(1))
-button1.grid(row=1,column=1)
-button2=Button(root,width=15,height=7,font=('Times 16 bold'),command=lambda:checker(2))
-button2.grid(row=1,column=2)
-button3=Button(root,width=15,height=7,font=('Times 16 bold'),command=lambda: checker(3))
-button3.grid(row=1,column=3)
-button4=Button(root,width=15,height=7,font=('Times 16 bold'),command=lambda: checker(4))
-button4.grid(row=2,column=1)
-button5=Button(root,width=15,height=7,font=('Times 16 bold'),command=lambda: checker(5))
-button5.grid(row=2,column=2)
-button6=Button(root,width=15,height=7,font=('Times 16 bold'),command=lambda: checker(6))
-button6.grid(row=2,column=3)
-button7=Button(root,width=15,height=7,font=('Times 16 bold'),command=lambda: checker(7))
-button7.grid(row=3,column=1)
-button8=Button(root,width=15,height=7,font=('Times 16 bold'),command=lambda: checker(8))
-button8.grid(row=3,column=2)
-button9=Button(root,width=15,height=7,font=('Times 16 bold'),command=lambda: checker(9))
-button9.grid(row=3,column=3)
-
-
-
-
-root.mainloop()
-#This program is created by Harsh Sharma
+print("WELCOME TO TIC TAC TOE")
+print()
+a=input("PLAYER ONE ENTER YOUR NAME :  ")
+print()
+b=input("PLAYER TWO ENTER YOUR NAME :  ")
+print()
+while True:
+    boards=[""]*10
+    player1_marker,player2_marker=player_input(a,b)
+    turn=choosefirst(a,b)
+    print()
+    print(turn+" will start the game ")
+    print()
+    play_game=input("Ready to Play? Y or N ")
+    if play_game=="Y":
+        game_on=True
+    else:
+        game_on=False
+    while game_on:
+        if turn== a:
+            display_board(boards)
+            pos=playerchoice(boards)
+            placemarker(boards,player1_marker,pos)
+            if wincheck(boards,player1_marker):
+                display_board(boards)
+                print(a.upper()+" IS THE WINNER")
+                print()
+                game_on=False
+            else:
+                if fullboardcheck(boards):
+                    display_board(boards)
+                    print("TIE MATCH")
+                    print()
+                    game_on=False
+                else:
+                    turn=b
+        else:
+            display_board(boards)
+            pos=playerchoice(boards)
+            placemarker(boards,player2_marker,pos)
+            if wincheck(boards,player2_marker):
+                display_board(boards)
+                print()
+                print(b.upper()+" IS THE WINNER")
+                print()
+                game_on=False
+            else:
+                if fullboardcheck(boards):
+                    display_board(boards)
+                    print()
+                    print("TIE MATCH")
+                    print()
+                    game_on=False
+                else:
+                    turn=a
+    if not replay():
+        break
