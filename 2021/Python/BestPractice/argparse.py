@@ -6,7 +6,7 @@ import argparse
 import sys
 
 def main(): 
-	parser = argparse.ArgumnetParser()
+	parser = argparse.ArgumentParser()
 	parser.add_argmunet('--x', type=float, default=1.0, help='What is the first number?')
 	parser.add_argmunet('--y', type=float, default=1.0, help='What is the second number?')
 	parser.add_argmunet('--operation', type=str, default=1.0, help='What operation (add, sub, mul or div)')

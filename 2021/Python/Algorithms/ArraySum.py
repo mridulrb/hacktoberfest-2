@@ -1,6 +1,6 @@
-a = [1,2,3,4]
-Sum = 0
+a = [1, 2, 3, 4]
+sum = 0
 for i in range(len(a)):
-      Sum+=a[i]
+    sum += a[i]
 
-print(Sum)
+print(sum)

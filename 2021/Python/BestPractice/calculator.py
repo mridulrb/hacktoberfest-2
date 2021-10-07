@@ -1,8 +1,6 @@
 from tkinter import *
 import tkinter.messagebox as tmsg
-import os
 import time
-from math import *
 
 
 def getvals(event):
